@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d20">
+  <meta name="description" content="TIK TK — رتّب يومك، واجه مفاجآته، ونوّر مدينتك.">
+  <title>TIK TK — نوّر مدينتك</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="space-bg" aria-hidden="true"><i class="glow glow-a"></i><i class="glow glow-b"></i><i class="star star-a">✦</i><i class="star star-b">✧</i><i class="star star-c">✦</i><i class="grid"></i></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" data-action="show-video" aria-label="العودة للبداية"><span class="brand-mark">⏱</span><span>TIK <b>TK</b></span></a>
+    <div class="top-actions"><span class="day-chip">المدينة مستنياك 🌃</span><button id="sound-toggle" class="sound-toggle" type="button" aria-label="تشغيل أو إيقاف الموسيقى" aria-pressed="false"><span id="sound-icon">🔇</span><span id="sound-label">تشغيل الموسيقى</span></button></div>
+  </header>
+
+  <main>
+    <section id="video-screen" class="screen video-screen active" aria-label="فيديو افتتاح اللعبة">
+      <div class="video-frame">
+        <video id="intro-video" autoplay muted playsinline preload="metadata">
+          <source src="time_progress_clock_city_15s_16x9.mp4" type="video/mp4">
+        </video>
+        <div id="video-fallback" class="video-fallback hidden"><span class="fallback-clock">⏱</span><strong>المدينة مستنياك!</strong><small>ادخل وابدأ تنوّرها بمهماتك.</small></div>
+        <div class="video-shade" aria-hidden="true"></div>
+        <div class="video-topline"><span class="video-brand">TIK TK <i>•</i> BEAT THE CLOCK</span><button class="video-skip" type="button" data-action="finish-video">تخطّي المشهد <b>←</b></button></div>
+        <div id="video-play-hint" class="video-play-hint hidden"><span>الفيديو جاهز</span><button class="btn btn-primary" type="button" data-action="play-video">شغّليه ▶</button></div>
+        <div id="video-end-panel" class="video-end-panel hidden"><span>كل خطوة هتسيب نورها ✨</span><button class="btn btn-primary" type="button" data-action="finish-video">ادخل المدينة <b>←</b></button></div>
+        <div class="video-progress"><i id="video-progress-bar"></i></div>
+      </div>
+      <p class="video-caption">كل ما الوقت يعدّي، اختياراتك بتفرق.</p>
+    </section>
+
+    <section id="home-screen" class="screen home-screen">
+      <div class="hero-copy">
+        <span class="eyebrow"><i></i> TIK TK — حكاية يومك</span>
+        <h1>الوقت بيعدّي...<br><span>وكل خطوة بتنور مكان.</span></h1>
+        <div class="story-lines">
+          <p><b>١</b><span>الوقت ما بيقفش.</span></p>
+          <p><b>٢</b><span>كل مهمة بتنجزها بتنور حتة في المدينة.</span></p>
+          <p><b>٣</b><span>خطّط يومك... وشوف مدينتك هتلمع إزاي!</span></p>
+        </div>
+        <button class="btn btn-primary hero-button" data-go="intro-screen">استعد للتحدي <b>←</b></button>
+        <div class="hero-points"><span>🕰️ وقتك بيتحرك</span><span>🏙️ إنجازك بيبان</span><span>🌱 من غير ضغط</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="city-preview-card"><span class="preview-label">كل مهمة... نور جديد</span><div class="preview-sky"><span class="preview-moon">☾</span><span class="preview-star ps-one">✦</span><span class="preview-star ps-two">✧</span><div class="preview-clock"><i></i></div><div class="preview-city"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="preview-road"></div></div><div class="preview-caption"><span>🌙</span><b>ابدأ بخطوة... والمدينة هترد عليك بالنور</b></div></div>
+        <span class="hero-spark spark-one">✦</span><span class="hero-spark spark-two">✧</span>
+      </div>
+      <div class="home-ribbon"><span>🗓️ خطّط</span><b>＋</b><span>🎯 اختار</span><b>＋</b><span>✨ أنجز</span><b>＝</b><strong>مدينة منوّرة!</strong></div>
+    </section>
+
+    <section id="intro-screen" class="screen narrow-screen">
+      <button class="back-link" data-go="home-screen">→ رجوع</button>
+      <div class="panel intro-panel">
+        <span class="section-icon">🏙️</span><span class="eyebrow centered">التحدي بدأ يقرب</span>
+        <h2>جاهز تدخل <span>التحدي؟</span></h2>
+        <p class="lead">اختار تحديات يومك ورتّبها، وخليك مرن لو ظهرت مفاجأة. كل تحدي تخلصه هينور مبنى جديد. مش مطلوب تعمل كل حاجة؛ اختار اللي يهمك وسيب مساحة لنفسك.</p>
+        <div class="how-grid">
+          <article><span>📝</span><b>اختار ورتّب</b><small>ضيف تحدياتك وقدّم أو أخّر بالأسهم.</small></article>
+          <article><span>⏳</span><b>تابع وقتك</b><small>كل خطوة بتحرك عقارب يومك.</small></article>
+          <article><span>🔋</span><b>وازن طاقتك</b><small>الراحة جزء من الخطة مش تعطيل.</small></article>
+          <article><span>🌃</span><b>نوّر المدينة</b><small>كل إنجاز ينور مكانه قدامك.</small></article>
+        </div>
+        <div class="note-box">✨ مفيش طريق واحد مثالي. اختياراتك هي اللي هترسم شكل يومك.</div>
+        <button class="btn btn-primary btn-wide" data-action="open-planner">جاهز؟ جهّز يومك <b>🚀</b></button>
+      </div>
+    </section>
+
+    <section id="planner-screen" class="screen planner-screen">
+      <div class="screen-heading"><button class="back-link" data-go="intro-screen">→ رجوع</button><span class="eyebrow"><i></i> المرحلة الأولى</span><h2>رتّب يومك <span>على راحتك</span></h2><p>اختار تحدياتك، وبعدها رتّبها بالأسهم. كل محطة تختارها هتبقى مبنى ممكن ينور في مدينتك.</p></div>
+      <div class="planner-layout">
+        <div class="panel task-library-panel"><div class="panel-title"><div><span class="section-icon small-icon">🧺</span><h3>اختار تحدياتك</h3></div><span class="tiny-label">اختار اللي يناسبك</span></div><div id="task-library" class="task-library"></div></div>
+        <aside class="panel plan-panel">
+          <div class="panel-title"><div><span class="section-icon small-icon">🗓️</span><h3>خطة يومك</h3></div><span id="plan-count" class="count-pill">٠ تحدي</span></div>
+          <div class="plan-clock"><span>⏳ وقت الخطة</span><strong id="plan-time">٠ ساعة</strong></div><div class="time-meter"><div id="plan-time-fill"></div></div>
+          <p id="plan-warning" class="plan-warning">ضيف تحدي واحد على الأقل عشان نبدأ.</p><div id="selected-tasks" class="selected-tasks"></div>
+          <div id="empty-plan" class="empty-state"><span>📝</span><b>لسه الخطة فاضية</b><small>اختار تحدي من القائمة.</small></div>
+          <div class="planner-city-tease"><div id="planner-city-map" class="city-map city-map-small" aria-label="معاينة المدينة قبل بدء التحدي"></div><p>كل تحدي هيبقى <b>محطة</b> في المدينة ✨</p></div>
+          <button id="start-day-button" class="btn btn-primary btn-wide" data-action="start-day" disabled>ابدأ يومك <b>🚀</b></button>
+          <button class="btn btn-quiet btn-wide" data-action="reset-plan">امسح الخطة</button>
+        </aside>
+      </div>
+    </section>
+
+    <section id="play-screen" class="screen game-screen">
+      <div class="game-heading"><div><span class="eyebrow"><i></i> يومك ماشي</span><h2>كل خطوة... <span>بتنوّر مكان</span></h2></div><div class="score-chip">⭐ <b id="game-stars">٠</b></div></div>
+      <section class="city-board panel" aria-label="تقدمك في المدينة">
+        <div class="city-board-head"><div><span class="city-kicker">خريطة يومك</span><h3>مدينتك بتكبر <span>بالإنجاز</span></h3></div><div class="city-progress-chip"><span id="city-progress-count">٠ / ٠</span><small>أماكن منوّرة</small></div></div>
+        <div id="city-map" class="city-map" role="img" aria-label="خريطة المدينة، والمباني بتنور مع إنجاز المهام"></div>
+        <div class="city-board-foot"><span class="city-spark">✦</span><span id="city-message">اختار أول تحدي وخلي أول نور يظهر!</span><span class="city-clock-label">الوقت <b id="city-time-label">٨:٠٠ ص</b></span></div>
+      </section>
+      <div class="dashboard">
+        <article class="dashboard-card"><span>🕗 الوقت دلوقتي</span><strong id="current-time">٨:٠٠ ص</strong><small>من ٨ الصبح لـ ١٠ بالليل</small></article>
+        <article class="dashboard-card energy-card"><div><span>🔋 طاقتك</span><strong id="energy-label">١٠٠٪</strong></div><div class="energy-track"><i id="energy-bar"></i></div><small id="energy-tip">طاقة حلوة، انطلق!</small></article>
+        <article class="dashboard-card progress-card"><div><span>🎯 مشوار اليوم</span><strong id="day-task-counter">٠ / ٠</strong></div><div class="energy-track"><i id="day-progress"></i></div><small>كل خطوة محسوبة</small></article>
+      </div>
+      <div class="game-columns">
+        <div class="panel current-panel">
+          <div class="current-top"><span class="live-tag"><i></i> التحدي الحالي</span><span id="task-duration" class="duration-pill">—</span></div>
+          <div id="player-character" class="character">😎</div><div id="character-message" class="speech">يلا بينا! يوم جديد وفرصة جديدة 🌞</div>
+          <div class="task-content"><span id="current-task-emoji" class="task-emoji">📚</span><h3 id="current-task-name">تحديك الجاي</h3><p id="current-task-description">ابدأ لما تكون جاهز.</p><div class="task-progress-track"><i id="task-progress-bar"></i></div><small id="task-progress-text">خد نفس وابدأ</small></div>
+          <div class="game-actions">
+            <button id="task-action-button" class="btn btn-primary btn-wide" data-action="begin-task">ابدأ التحدي <b>⚡</b></button>
+            <button id="pause-button" class="btn btn-secondary btn-wide hidden" data-action="pause-task">استراحة دقيقة ☕</button>
+            <button id="resume-button" class="btn btn-primary btn-wide hidden" data-action="resume-task">كمّل التحدي <b>→</b></button>
+            <button id="skip-button" class="text-action" data-action="skip-task">عدّي التحدي ده</button>
+          </div>
+        </div>
+        <aside class="panel timeline-panel"><div class="panel-title"><div><span class="section-icon small-icon">📋</span><h3>تحديات اليوم</h3></div><span class="tiny-label">خطتك المرنة</span></div><div id="day-task-list" class="day-task-list"></div><div class="gentle-tip">🌱 <span>ممكن تغيّر خطتك في أي وقت. يومك مش سباق!</span></div></aside>
+      </div>
+    </section>
+
+    <section id="event-screen" class="screen narrow-screen event-screen">
+      <div class="panel event-panel"><div id="event-emoji" class="event-emoji">🎲</div><span class="eyebrow centered">موقف في السكة</span><h2 id="event-title">حصلت مفاجأة!</h2><p id="event-description" class="lead"></p><div id="event-options" class="event-options"></div><div class="note-box">اختار اللي يناسب أولوياتك. مفيش اختيار غلط ✨</div></div>
+    </section>
+
+    <section id="result-screen" class="screen narrow-screen result-screen">
+      <div class="panel result-panel">
+        <div id="result-emoji" class="result-emoji">🏆</div><span class="eyebrow centered">كده خلص يومك</span><h2 id="result-title">عاش!</h2><p id="result-message" class="lead"></p>
+        <div class="result-score"><span id="result-stars">⭐ ٠</span><b id="result-badge">صاحب يوم متوازن</b></div>
+        <div class="result-city-wrap"><h3>بصي مدينتك بقت عاملة إزاي! 🌃</h3><div id="result-city-map" class="city-map city-map-result" aria-label="المدينة بعد إنجاز اليوم"></div></div>
+        <div class="stats-grid"><article><span>✅</span><b id="stat-completed">٠</b><small>تحديات خلصت</small></article><article><span>⏭️</span><b id="stat-skipped">٠</b><small>تحديات عدّيتيها</small></article><article><span>⏱️</span><b id="stat-time">٠</b><small>دقيقة لعب</small></article><article><span>🔋</span><b id="stat-energy">١٠٠٪</b><small>طاقة فاضلة</small></article></div>
+        <div class="takeaway"><span>💡</span><p id="result-insight">التخطيط مش معناه تعمل كل حاجة؛ معناه تختار اللي يهمك وتسيب مساحة لنفسك.</p></div>
+        <button class="btn btn-primary btn-wide" data-action="restart">يلا يوم جديد <b>↻</b></button><button class="btn btn-quiet btn-wide" data-go="home-screen">ارجعي للحكاية</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <footer><span>TIK TK</span><span class="credit">BY <b>ENG ZEINAB MADANY</b></span><span>وقتك ليك... وخطواتك بتنور مدينتك 💛</span></footer>
+</body>
+</html>
